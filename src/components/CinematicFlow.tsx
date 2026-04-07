@@ -217,8 +217,8 @@ const CinematicFlow = () => {
 
       case "video":
         return (
-          <div className="text-center space-y-6 max-w-4xl mx-auto px-4">
-            <div className="relative rounded-2xl overflow-hidden box-glow aspect-video bg-black">
+          <div className="text-center space-y-6 max-w-6xl mx-auto px-4 w-full">
+            <div className="relative rounded-2xl overflow-hidden box-glow h-[55vh] md:h-[65vh] bg-black">
               <video
                 src={scene.videoUrl}
                 autoPlay
@@ -231,9 +231,9 @@ const CinematicFlow = () => {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent pointer-events-none" />
             </div>
-            <p className="font-display text-xl md:text-2xl text-foreground/80 italic">
+            {/* <p className="font-display text-xl md:text-2xl text-foreground/80 italic">
               {scene.text}
-            </p>
+            </p> */}
           </div>
         );
 
