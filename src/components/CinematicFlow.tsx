@@ -190,7 +190,7 @@ const CinematicFlow = () => {
             <div className="flex items-center gap-2 px-4 py-3 bg-secondary/50 border-b border-border">
               <span className="w-3 h-3 rounded-full bg-destructive/70" />
               <span className="w-3 h-3 rounded-full bg-accent/70" />
-              <span className="w-3 h-3 rounded-full bg-green-500/70" />
+              <span className="w-3 h-3 rounded-full bg-accent/50" />
               <span className="ml-3 text-xs text-muted-foreground font-mono-code">
                 love.ts
               </span>
