@@ -26,9 +26,9 @@ const scenes: Scene[] = [
   },
   {
     type: "photos",
-    duration: 5000,
+    duration: 6000,
     images: [F1, F2, F3],
-    text: "Celebrating another year of you...",
+    text: "In every frame, your beauty makes the world brighter..",
   },
   {
     type: "text",
@@ -119,44 +119,53 @@ const CinematicFlow = () => {
             <p className="font-display text-2xl md:text-4xl text-primary italic text-glow">
               {scene.subtext}
             </p>
-            {/* <div className="mt-6 flex items-center justify-center gap-2 text-muted-foreground font-mono-code text-sm">
-              <span className="text-accent">const</span> love{" "}
-              <span className="text-accent">=</span>{" "}
-              <span className="text-primary">Infinity</span>;
-            </div> */}
           </div>
         );
 
       case "photos":
         return (
           <div className="text-center space-y-8">
-            <div className="flex items-center justify-center gap-4 md:gap-6 px-4">
-              {scene.images?.map((src, i) => (
-                <div
-                  key={i}
-                  className="w-[28vw] max-w-[260px] aspect-[3/4] rounded-2xl overflow-hidden box-glow"
-                  style={{
-                    opacity: phase === "visible" ? 1 : 0,
-                    transform:
-                      phase === "visible" ? "scale(1)" : "scale(0.9)",
-                    transition: `all ${FADE_MS}ms ease ${300 + i * 400}ms`,
-                  }}
-                >
-                  <img
-                    src={src}
-                    alt=""
-                    className="w-full h-full object-cover transition-transform duration-[3000ms] ease-out hover:scale-105"
+            <div className="flex items-center justify-center gap-2 md:gap-4 px-4">
+              {scene.images?.map((src, i) => {
+                const isMiddle = i === 1;
+                return (
+                  <div
+                    key={i}
+                    className={`rounded-2xl overflow-hidden box-glow transition-all duration-[1000ms] ease-out ${isMiddle
+                      ? "w-[40vw] max-w-[400px] z-10 scale-110"
+                      : "w-[20vw] max-w-[200px] opacity-60 scale-90"
+                      }`}
                     style={{
-                      transform: phase === "visible" ? "scale(1.05)" : "scale(1)",
-                      transition: `transform ${scene.duration}ms ease-out`,
+                      opacity: phase === "visible" ? (isMiddle ? 1 : 0.6) : 0,
+                      transform: phase === "visible"
+                        ? (isMiddle ? "scale(1.1) translateY(0)" : "scale(0.9) translateY(20px)")
+                        : "scale(0.8) translateY(40px)",
+                      transitionDelay: `${300 + i * 200}ms`,
                     }}
-                  />
-                </div>
-              ))}
+                  >
+                    <img
+                      src={src}
+                      alt=""
+                      className="w-full h-full object-cover"
+                      style={{
+                        transition: `transform ${scene.duration}ms ease-out`,
+                        transform: phase === "visible" ? "scale(1.1)" : "scale(1)",
+                      }}
+                    />
+                  </div>
+                );
+              })}
             </div>
-            <p className="font-display text-xl md:text-2xl text-foreground/80 italic">
-              {scene.text}
-            </p>
+            <div className="space-y-2">
+              <p className="font-display text-2xl md:text-3xl text-foreground text-glow italic">
+                {scene.text}
+              </p>
+              {scene.subtext && (
+                <p className="font-display text-lg md:text-xl text-primary/80 italic text-glow">
+                  {scene.subtext}
+                </p>
+              )}
+            </div>
           </div>
         );
 
@@ -263,10 +272,10 @@ const CinematicFlow = () => {
           <div
             key={i}
             className={`h-1.5 rounded-full transition-all duration-500 ${i === sceneIndex
-              ? "w-6 bg-primary"
-              : i < sceneIndex
-                ? "w-1.5 bg-primary/50"
-                : "w-1.5 bg-muted-foreground/30"
+                ? "w-6 bg-primary"
+                : i < sceneIndex
+                  ? "w-1.5 bg-primary/50"
+                  : "w-1.5 bg-muted-foreground/30"
               }`}
           />
         ))}
