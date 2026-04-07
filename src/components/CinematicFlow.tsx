@@ -224,7 +224,7 @@ const CinematicFlow = () => {
                 autoPlay
                 muted
                 playsInline
-                className="w-full h-full object-cover"
+                className="w-full h-full object-contain bg-black/40"
                 onEnded={() => {
                   // Optional: could trigger next scene here
                 }}
