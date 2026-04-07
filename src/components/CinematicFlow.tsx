@@ -132,8 +132,8 @@ const CinematicFlow = () => {
                   <div
                     key={i}
                     className={`rounded-2xl overflow-hidden box-glow transition-all duration-[1000ms] ease-out ${isMiddle
-                        ? "w-[40vw] max-w-[380px] h-[50vh] z-10 scale-105"
-                        : "w-[20vw] max-w-[180px] h-[35vh] opacity-60"
+                      ? "w-[40vw] max-w-[380px] h-[50vh] z-10 scale-105"
+                      : "w-[20vw] max-w-[180px] h-[35vh] opacity-60"
                       }`}
                     style={{
                       opacity: phase === "visible" ? (isMiddle ? 1 : 0.6) : 0,
@@ -146,7 +146,7 @@ const CinematicFlow = () => {
                     <img
                       src={src}
                       alt=""
-                      className="w-full h-full object-cover"
+                      className={`w-full h-full ${isMiddle ? "object-contain bg-black/20" : "object-cover"}`}
                       style={{
                         transition: `transform ${scene.duration}ms ease-out`,
                         transform: phase === "visible" ? "scale(1.1)" : "scale(1)",
