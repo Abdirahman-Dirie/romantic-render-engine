@@ -1,16 +1,33 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { useState } from "react";
+import IntroScreen from "@/components/IntroScreen";
+import BirthdayTitle from "@/components/BirthdayTitle";
+import PhotoGallery from "@/components/PhotoGallery";
+import TypingMessage from "@/components/TypingMessage";
+import FloatingHearts from "@/components/FloatingHearts";
+import MusicPlayer from "@/components/MusicPlayer";
+import Footer from "@/components/Footer";
 
-// IMPORTANT: Fully REPLACE this with your own code
-const PlaceholderIndex = () => {
-  // PLACEHOLDER: Replace this entire return statement with the user's app.
-  // The inline background color is intentionally not part of the design system.
+const Index = () => {
+  const [started, setStarted] = useState(false);
+
   return (
-    <div className="flex min-h-screen items-center justify-center" style={{ backgroundColor: '#fcfbf8' }}>
-      <img data-lovable-blank-page-placeholder="REMOVE_THIS" src="/placeholder.svg" alt="Your app will live here!" />
+    <div className="min-h-screen gradient-romantic relative">
+      {!started && <IntroScreen onOpen={() => setStarted(true)} />}
+
+      {started && (
+        <>
+          <FloatingHearts />
+          <MusicPlayer />
+          <main className="relative z-10">
+            <BirthdayTitle />
+            <PhotoGallery />
+            <TypingMessage />
+            <Footer />
+          </main>
+        </>
+      )}
     </div>
   );
 };
-
-const Index = PlaceholderIndex;
 
 export default Index;
