@@ -5,6 +5,7 @@ import F3 from "@/assets/F3.jpeg";
 import FD1 from "@/assets/FD1.jpeg";
 import FD2 from "@/assets/FD2.jpeg";
 import FD3 from "@/assets/FD3.jpeg";
+import oceanVideo from "@/assets/ocean.mp4";
 
 interface Scene {
   type: "title" | "photos" | "text" | "code" | "final" | "video";
@@ -38,7 +39,7 @@ const scenes: Scene[] = [
   {
     type: "video",
     duration: 12000,
-    videoUrl: "/src/assets/ocean.mp4",
+    videoUrl: oceanVideo,
     text: "A special message in the sand...",
   },
   {
