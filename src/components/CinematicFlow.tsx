@@ -124,21 +124,21 @@ const CinematicFlow = () => {
 
       case "photos":
         return (
-          <div className="text-center space-y-8">
-            <div className="flex items-center justify-center gap-2 md:gap-4 px-4">
+          <div className="text-center flex flex-col items-center justify-center space-y-6 md:space-y-10 max-h-[85vh]">
+            <div className="flex items-center justify-center gap-2 md:gap-4 px-4 w-full">
               {scene.images?.map((src, i) => {
                 const isMiddle = i === 1;
                 return (
                   <div
                     key={i}
                     className={`rounded-2xl overflow-hidden box-glow transition-all duration-[1000ms] ease-out ${isMiddle
-                      ? "w-[40vw] max-w-[400px] z-10 scale-110"
-                      : "w-[20vw] max-w-[200px] opacity-60 scale-90"
+                        ? "w-[40vw] max-w-[380px] h-[50vh] z-10 scale-105"
+                        : "w-[20vw] max-w-[180px] h-[35vh] opacity-60"
                       }`}
                     style={{
                       opacity: phase === "visible" ? (isMiddle ? 1 : 0.6) : 0,
                       transform: phase === "visible"
-                        ? (isMiddle ? "scale(1.1) translateY(0)" : "scale(0.9) translateY(20px)")
+                        ? (isMiddle ? "scale(1.05) translateY(0)" : "scale(0.9) translateY(20px)")
                         : "scale(0.8) translateY(40px)",
                       transitionDelay: `${300 + i * 200}ms`,
                     }}
@@ -156,8 +156,8 @@ const CinematicFlow = () => {
                 );
               })}
             </div>
-            <div className="space-y-2">
-              <p className="font-display text-2xl md:text-3xl text-foreground text-glow italic">
+            <div className="space-y-2 px-6">
+              <p className="font-display text-xl md:text-3xl text-foreground text-glow italic leading-tight max-w-2xl">
                 {scene.text}
               </p>
               {scene.subtext && (
@@ -272,10 +272,10 @@ const CinematicFlow = () => {
           <div
             key={i}
             className={`h-1.5 rounded-full transition-all duration-500 ${i === sceneIndex
-                ? "w-6 bg-primary"
-                : i < sceneIndex
-                  ? "w-1.5 bg-primary/50"
-                  : "w-1.5 bg-muted-foreground/30"
+              ? "w-6 bg-primary"
+              : i < sceneIndex
+                ? "w-1.5 bg-primary/50"
+                : "w-1.5 bg-muted-foreground/30"
               }`}
           />
         ))}
