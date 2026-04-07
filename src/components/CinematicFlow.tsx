@@ -7,9 +7,10 @@ import FD2 from "@/assets/FD2.jpeg";
 import FD3 from "@/assets/FD3.jpeg";
 
 interface Scene {
-  type: "title" | "photos" | "text" | "code" | "final";
+  type: "title" | "photos" | "text" | "code" | "final" | "video";
   duration: number; // ms visible
   images?: string[];
+  videoUrl?: string;
   text?: string;
   subtext?: string;
   lines?: string[];
@@ -34,17 +35,16 @@ const scenes: Scene[] = [
     text: "Wishing you a day filled with love, laughter, and everything that makes you smile.",
     subtext: "May this year bring you happiness, success, and unforgettable memories.",
   },
-  // {
-  //   type: "photos",
-  //   duration: 5000,
-  //   images: [FD1, FD2, FD3],
-  //   text: "To many more chapters in our story.",
-  // },
+  {
+    type: "video",
+    duration: 12000,
+    videoUrl: "/src/assets/ocean.mp4",
+    text: "A special message in the sand...",
+  },
   {
     type: "final",
     duration: 8000,
     text: "Happy Birthday Foos ❤️",
-    // subtext: "Made with love & late-night commits 💻",
   },
 ];
 
@@ -202,6 +202,28 @@ const CinematicFlow = () => {
                 </div>
               ))}
             </div>
+          </div>
+        );
+
+      case "video":
+        return (
+          <div className="text-center space-y-6 max-w-2xl mx-auto px-4">
+            <div className="relative rounded-2xl overflow-hidden box-glow aspect-video bg-black">
+              <video
+                src={scene.videoUrl}
+                autoPlay
+                muted
+                playsInline
+                className="w-full h-full object-cover"
+                onEnded={() => {
+                  // Optional: could trigger next scene here
+                }}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent pointer-events-none" />
+            </div>
+            <p className="font-display text-xl md:text-2xl text-foreground/80 italic">
+              {scene.text}
+            </p>
           </div>
         );
 
