@@ -208,7 +208,7 @@ const CinematicFlow = () => {
 
       case "video":
         return (
-          <div className="text-center space-y-6 max-w-2xl mx-auto px-4">
+          <div className="text-center space-y-6 max-w-4xl mx-auto px-4">
             <div className="relative rounded-2xl overflow-hidden box-glow aspect-video bg-black">
               <video
                 src={scene.videoUrl}
