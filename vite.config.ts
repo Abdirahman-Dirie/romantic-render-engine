@@ -5,7 +5,7 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  base: "/romantic-render-engine/",
+  base: mode === "production" ? "/romantic-render-engine/" : "/",
   server: {
     host: "::",
     port: 8080,
