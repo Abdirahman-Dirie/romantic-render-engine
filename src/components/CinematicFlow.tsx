@@ -1,10 +1,10 @@
 import { useEffect, useState, useCallback } from "react";
-import gallery1 from "@/assets/gallery-1.jpg";
-import gallery2 from "@/assets/gallery-2.jpg";
-import gallery3 from "@/assets/gallery-3.jpg";
-import gallery4 from "@/assets/gallery-4.jpg";
-import gallery5 from "@/assets/gallery-5.jpg";
-import gallery6 from "@/assets/gallery-6.jpg";
+import F1 from "@/assets/F1.jpeg";
+import F2 from "@/assets/F2.jpeg";
+import F3 from "@/assets/F3.jpeg";
+import FD1 from "@/assets/FD1.jpeg";
+import FD2 from "@/assets/FD2.jpeg";
+import FD3 from "@/assets/FD3.jpeg";
 
 interface Scene {
   type: "title" | "photos" | "text" | "code" | "final";
@@ -25,20 +25,20 @@ const scenes: Scene[] = [
   {
     type: "photos",
     duration: 5000,
-    images: [gallery1, gallery2, gallery3],
-    text: "Every moment with you is my favorite",
+    images: [F1, F2, F3],
+    text: "Celebrating another year of you...",
   },
   {
     type: "text",
-    duration: 4000,
-    text: "You are my favorite person",
-    subtext: "in every line of my life ❤️",
+    duration: 6000,
+    text: "Wishing you a day filled with love, laughter, and everything that makes you smile.",
+    subtext: "May this year bring you happiness, success, and unforgettable memories.",
   },
   {
     type: "photos",
     duration: 5000,
-    images: [gallery4, gallery5, gallery6],
-    text: "My heart, always yours",
+    images: [FD1, FD2, FD3],
+    text: "To many more chapters in our story.",
   },
   {
     type: "code",
@@ -56,7 +56,7 @@ const scenes: Scene[] = [
   {
     type: "final",
     duration: 8000,
-    text: "I love you more than any code could ever express ❤️",
+    text: "Happy Birthday to my everything ❤️",
     subtext: "Made with love & late-night commits 💻",
   },
 ];
@@ -252,13 +252,12 @@ const CinematicFlow = () => {
         {scenes.map((_, i) => (
           <div
             key={i}
-            className={`h-1.5 rounded-full transition-all duration-500 ${
-              i === sceneIndex
+            className={`h-1.5 rounded-full transition-all duration-500 ${i === sceneIndex
                 ? "w-6 bg-primary"
                 : i < sceneIndex
                   ? "w-1.5 bg-primary/50"
                   : "w-1.5 bg-muted-foreground/30"
-            }`}
+              }`}
           />
         ))}
       </div>
