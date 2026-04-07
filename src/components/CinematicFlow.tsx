@@ -34,30 +34,17 @@ const scenes: Scene[] = [
     text: "Wishing you a day filled with love, laughter, and everything that makes you smile.",
     subtext: "May this year bring you happiness, success, and unforgettable memories.",
   },
-  {
-    type: "photos",
-    duration: 5000,
-    images: [FD1, FD2, FD3],
-    text: "To many more chapters in our story.",
-  },
-  {
-    type: "code",
-    duration: 6000,
-    lines: [
-      '> console.log("Happy Birthday ❤️");',
-      "",
-      "if (you.exist()) {",
-      '  myWorld = "complete";',
-      "}",
-      "",
-      "// return love; // always",
-    ],
-  },
+  // {
+  //   type: "photos",
+  //   duration: 5000,
+  //   images: [FD1, FD2, FD3],
+  //   text: "To many more chapters in our story.",
+  // },
   {
     type: "final",
     duration: 8000,
-    text: "Happy Birthday to my everything ❤️",
-    subtext: "Made with love & late-night commits 💻",
+    text: "Happy Birthday Foos ❤️",
+    // subtext: "Made with love & late-night commits 💻",
   },
 ];
 
@@ -131,11 +118,11 @@ const CinematicFlow = () => {
             <p className="font-display text-2xl md:text-4xl text-primary italic text-glow">
               {scene.subtext}
             </p>
-            <div className="mt-6 flex items-center justify-center gap-2 text-muted-foreground font-mono-code text-sm">
+            {/* <div className="mt-6 flex items-center justify-center gap-2 text-muted-foreground font-mono-code text-sm">
               <span className="text-accent">const</span> love{" "}
               <span className="text-accent">=</span>{" "}
               <span className="text-primary">Infinity</span>;
-            </div>
+            </div> */}
           </div>
         );
 
@@ -253,10 +240,10 @@ const CinematicFlow = () => {
           <div
             key={i}
             className={`h-1.5 rounded-full transition-all duration-500 ${i === sceneIndex
-                ? "w-6 bg-primary"
-                : i < sceneIndex
-                  ? "w-1.5 bg-primary/50"
-                  : "w-1.5 bg-muted-foreground/30"
+              ? "w-6 bg-primary"
+              : i < sceneIndex
+                ? "w-1.5 bg-primary/50"
+                : "w-1.5 bg-muted-foreground/30"
               }`}
           />
         ))}
