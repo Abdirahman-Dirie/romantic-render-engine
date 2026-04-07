@@ -132,8 +132,8 @@ const CinematicFlow = () => {
                   <div
                     key={i}
                     className={`rounded-2xl overflow-hidden box-glow transition-all duration-[1000ms] ease-out ${isMiddle
-                      ? "w-[40vw] max-w-[380px] h-[50vh] z-10 scale-105"
-                      : "w-[20vw] max-w-[180px] h-[35vh] opacity-60"
+                        ? "w-[65vw] md:w-[40vw] max-w-[380px] h-[45vh] md:h-[50vh] z-10 scale-105"
+                        : "w-[15vw] md:w-[20vw] max-w-[180px] h-[25vh] md:h-[35vh] opacity-60"
                       }`}
                     style={{
                       opacity: phase === "visible" ? (isMiddle ? 1 : 0.6) : 0,
